@@ -1,3 +1,6 @@
 from django.contrib import admin
+from .models import Dish, DishReview, DishQA
 
-# Register your models here.
+admin.site.register(Dish)
+admin.site.register(DishReview)
+admin.site.register(DishQA)
