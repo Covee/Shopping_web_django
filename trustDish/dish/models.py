@@ -17,6 +17,8 @@ class Dish(models.Model):
 class DishReview(models.Model):
     dish = models.ForeignKey(Dish, on_delete=models.CASCADE)
     title = models.TextField()
+    image = models.ImageField()
+    star = models.FloatField()
 
     def __str__(self):
         return self.title
