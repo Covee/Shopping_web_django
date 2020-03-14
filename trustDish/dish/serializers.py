@@ -11,3 +11,12 @@ class DishReviewSerializer(serializers.ModelSerializer):
     class Meta:
         model = DishReview
         fields = ['id', 'dish',  'title', 'image', 'star']
+
+
+class DishReviewDetailSerializer(serializers.ModelSerializer):
+    dish_set = DishSerializer(many=True)
+    class Meta:
+        model = DishReview
+        fields = ['id', 'title', 'image', 'star', 'dish_set',]
+
+        

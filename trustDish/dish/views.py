@@ -26,3 +26,10 @@ def dish_review_list(request):
     
     serializer = DishReviewSerializer(dish_reviews, many=True)
     return Response(serializer.data)
+
+
+@api_view(['GET'])
+def dish_review_detail(Request, dish_review_id):
+    dish_review = get_object_or_404(DishReview, id=dish_review_id)
+    serializer = DishReviewDetailSerializer(dish_review)
+    return Response(serializer.data)
