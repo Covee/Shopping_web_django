@@ -5,7 +5,6 @@ from .serializers import DishSerializer, DishReviewSerializer
 from rest_framework.response import Response
 
 
-
 @api_view(['GET'])
 def dish_list(request):
     dishes = Dish.objects.all()
