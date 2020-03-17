@@ -32,3 +32,11 @@ def dish_review_detail(Request, dish_review_id):
     dish_review = get_object_or_404(DishReview, id=dish_review_id)
     serializer = DishReviewDetailSerializer(dish_review)
     return Response(serializer.data)
+
+
+@api_view(['POST'])
+def review_create(request, dish_id):
+    serializer = DishReviewSerializer(data=request.data)
+    if serializer.is_valid(raise_exception=True):
+        serializer.save(dish_id=dish_id)
+        return Response(serializer.data)
